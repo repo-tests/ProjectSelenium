@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 17 mai 2013 03:01:32 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="Model.entities.Personnel" table="PERSONNEL">
+        <id name="id_pers" type="int">
+            <column name="ID_PERS" />
+            <generator class="increment" />
+        </id>
+        <property name="nom_pers" type="java.lang.String">
+            <column name="NOM_PERS" />
+        </property>
+        <property name="prenom_pers" type="java.lang.String">
+            <column name="PRENOM_PERS" />
+        </property>
+        <property name="date_emb" type="java.lang.String">
+            <column name="DATE_EMB" />
+        </property>
+        <set name="taches" table="TACHE" inverse="false" lazy="false">
+            <key>
+                <column name="ID_PERS" />
+            </key>
+            <one-to-many class="Model.entities.Tache" />
+        </set>
+          <property name="role" type="java.lang.String">
+            <column name="ROLE" />
+        </property>
+    </class>
+</hibernate-mapping>
